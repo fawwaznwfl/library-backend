@@ -6,8 +6,11 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
   app.enableCors({
-    origin: 'http://localhost:3001',
-  });
+    origin: [
+      'http://localhost:3001',
+      'https://library-frontend-gilt-delta.vercel.app',
+    ],
+  }); 
 
   app.useGlobalPipes(
     new ValidationPipe({
